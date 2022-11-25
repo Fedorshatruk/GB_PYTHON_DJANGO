@@ -22,6 +22,11 @@ class NewsPageView(TemplateView):
         context["datetime_obj"] = datetime.now()
         return context
 
+class NewsWithPaginatorView(NewsPageView):
+    def get_context_data(self, page, **kwargs):
+        context = super().get_context_data(page=page, **kwargs)
+        context["page_num"] = page
+        return context
 
 class CoursesPageView(TemplateView):
     template_name = "mainapp/courses_list.html"
