@@ -4,4 +4,4 @@ from django.views.generic import TemplateView
 
 
 class ContactsPageView(TemplateView):
-    template_name = "mainapp/contacts.html"
+    template_name = "mainapp/contacts/contacts.html"

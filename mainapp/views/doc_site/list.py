@@ -4,4 +4,4 @@ from django.views.generic import TemplateView
 
 
 class DocSitePageView(TemplateView):
-    template_name = "mainapp/doc_site.html"
+    template_name = "mainapp/doc_site/doc_site.html"

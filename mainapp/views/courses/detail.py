@@ -6,7 +6,7 @@ from mainapp.models import Courses, Lesson, CourseTeachers
 
 
 class CoursesDetailView(TemplateView):
-    template_name = "mainapp/courses_detail.html"
+    template_name = "mainapp/courses/courses_detail.html"
 
     def get_context_data(self, pk=None, **kwargs):
         context = super(CoursesDetailView, self).get_context_data(**kwargs)

@@ -5,7 +5,7 @@ from mainapp.models import News
 
 
 class NewsPageView(TemplateView):
-    template_name = "mainapp/news.html"
+    template_name = "mainapp/news/news.html"
 
     def get_context_data(self, **kwargs):
         # Get all previous data
