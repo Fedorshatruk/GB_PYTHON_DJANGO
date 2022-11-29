@@ -27,7 +27,6 @@ class NewsWithPaginatorView(NewsPageView):
     def get_context_data(self, page, **kwargs):
         context = super().get_context_data(page=page, **kwargs)
         context["page_num"] = page
-        print(self.request.GET.get('param1'))
         return context
 
 
