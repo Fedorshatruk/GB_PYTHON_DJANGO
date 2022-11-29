@@ -2,8 +2,12 @@ __all__ = ['Courses']
 
 from django.db import models
 
+from mainapp.models.managers import CoursesManager
+
 
 class Courses(models.Model):
+    objects = CoursesManager()
+
     name = models.CharField(max_length=256, verbose_name="Name")
     description = models.TextField(
         verbose_name="Description", blank=True, null=True
