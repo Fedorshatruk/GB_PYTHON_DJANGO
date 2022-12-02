@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+from social_core.backends.vk import VKOAuth2
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -157,8 +159,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 AUTHENTICATION_BACKENDS = (
     "social_core.backends.github.GithubOAuth2",
+    'social_core.backends.vk.VKOAuth2',
     "django.contrib.auth.backends.ModelBackend",
 )
 
 SOCIAL_AUTH_GITHUB_KEY = "c9ec0cf4778bc1535f4c"
 SOCIAL_AUTH_GITHUB_SECRET = "cae481533ab73098c4bb11fbe73a46c847dfaa32"
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '8112501'# ID приложения
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'qNOrYzVRAoxq0uKqrd1r' # Защищённый ключ
+SOCIAL_AUTH_VK_OAUTH2_API_VERSION = '5.131'
