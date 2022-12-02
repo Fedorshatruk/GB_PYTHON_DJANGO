@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Курсы
+{% endblock title %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-3">
+
+
+  {% for item in objects %}
+  {% include 'mainapp/courses/includes/course_list_item.html' with course=item %}
+  {% endfor %}
+
+</div>
+{% include 'mainapp/includes/pagination.html' %}
+
+{% endblock content %}
