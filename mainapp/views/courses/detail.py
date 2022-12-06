@@ -2,7 +2,8 @@ __all__ = ['CoursesDetailView']
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 
-from mainapp.models import Courses, Lesson, CourseTeachers
+from mainapp.forms import CourseFeedbackForm
+from mainapp.models import Courses, Lesson, CourseTeachers, CourseFeedback
 
 
 class CoursesDetailView(TemplateView):
@@ -19,4 +20,14 @@ class CoursesDetailView(TemplateView):
         context["teachers"] = CourseTeachers.objects.filter(
             course=context["course_object"]
         )
+        if not self.request.user.is_anonymous:
+            if not CourseFeedback.objects.filter(
+                course=context["course_object"], user=self.request.user
+            ).exists():
+                context["feedback_form"] = CourseFeedbackForm(
+                    course=context["course_object"], user=self.request.user
+                )
+        context["feedback_list"] = CourseFeedback.objects.filter(
+            course=context["course_object"]
+        ).order_by("-created", "-rating")[:5]
         return context
