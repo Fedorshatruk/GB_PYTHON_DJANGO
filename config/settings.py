@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "markdownify.apps.MarkdownifyConfig",
+    "social_django",
     "mainapp",
+    "authapp",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -66,9 +69,12 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
+                "django.template.context_processors.media",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "mainapp.context_processors.example.simple_context_processor",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -106,6 +112,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "authapp.CustomUser"
+AUTHENTICATION_BACKENDS = (
+    "social_core.backends.github.GithubOAuth2",
+    'social_core.backends.vk.VKOAuth2',
+    "django.contrib.auth.backends.ModelBackend",
+)
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '8112501' # ID приложения
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'qNOrYzVRAoxq0uKqrd1r' # Защищённый ключ
+SOCIAL_AUTH_VK_OAUTH2_API_VERSION = '5.131'
+
+LOGIN_REDIRECT_URL = "mainapp:main_page"
+LOGOUT_REDIRECT_URL = "mainapp:main_page"
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -134,3 +156,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+# Media files
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+SOCIAL_AUTH_GITHUB_KEY = "c9ec0cf4778bc1535f4c"
+SOCIAL_AUTH_GITHUB_SECRET = "cae481533ab73098c4bb11fbe73a46c847dfaa32"
