@@ -1,9 +1,9 @@
 __all__ = ['News']
 
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
-# Create your models here.
 class News(models.Model):
     title = models.CharField(max_length=256, verbose_name="Title")
     preambule = models.CharField(max_length=1024, verbose_name="Preambule")
@@ -25,3 +25,8 @@ class News(models.Model):
     def delete(self, *args):
         self.deleted = True
         self.save()
+
+    class Meta:
+        verbose_name = _("News") # Название
+        verbose_name_plural = _("News") # Название во множественном числе
+        ordering = ("-created",) # Сортировка
