@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from authapp.forms.user_creation_form import CustomUserCreationForm
+from authapp.forms import CustomUserCreationForm
 
 
 class RegisterView(CreateView):
