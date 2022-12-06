@@ -1,11 +1,29 @@
 <div class="card my-2">
-    <div class="card-body">
+      <div class="card-body">
         <h5 class="card-title">{{ news.title }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">
-            {{ news.created|date:"Y-m-d h-i-s" }}
+          {{ news.created|date:"Y-m-d h-i-s" }}
         </h6>
         <p class="card-text">{{ news.preambule }}</p>
-        <a href="{% url 'mainapp:news_detail' pk=news.pk %}"
-           class="card-link">Подробнее</a>
+        <div class="row">
+          <div class="col">
+            <a href="{% url 'mainapp:news_detail' pk=news.pk %}"
+              class="card-link">Подробнее</a>
+          </div>
+          {% if perms.mainapp.change_news %}
+          <div class="col-1 text-center">
+            <a href="{% url 'mainapp:news_update' pk=news.pk %}">
+              <i class="far fa-edit"></i>
+            </a>
+          </div>
+          {% endif %}
+          {% if perms.mainapp.delete_news %}
+          <div class="col-1 text-center">
+            <a href="{% url 'mainapp:news_delete' pk=news.pk %}">
+              <i class="far fa-trash-alt"></i>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
     </div>
-</div>

@@ -15,11 +15,10 @@
 {% endif %}
 
 <div class="row">
-
   <div class="col-lg-8">
 
-    {% for item in news_qs %}
-      {% include 'mainapp/news/includes/news_item.html' with news=item %}
+    {% for item in object_list %}
+    {% include 'mainapp/news/includes/news_item.html' with news=item %}
     {% endfor %}
 
   </div>
@@ -49,10 +48,26 @@
         </form>
       </div>
     </div>
+
+    {% if perms.mainapp.add_news %}
+    <a class="btn btn-primary btn-block" role="button"
+      href="{% url 'mainapp:news_create' %}">Добавить новость</a>
+    {% endif %}
+
   </div>
 
 </div>
 
-{% include 'mainapp/includes/pagination.html' %}
+<div class="row justify-content-center align-items-center mt-3 mb-n3">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      {# <li class="page-item"><a class="page-link" href="#">3</a></li> #}
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</div>
 
 {% endblock content %}
