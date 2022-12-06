@@ -17,6 +17,11 @@ urlpatterns = [
         name="news_detail",
     ),
     path(
+        "course_feedback/",
+        views.CourseFeedbackFormProcessView.as_view(),
+        name="course_feedback",
+    ),
+    path(
         "news/<int:pk>/update",
         views.NewsUpdateView.as_view(),
         name="news_update",
