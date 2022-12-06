@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "markdownify.apps.MarkdownifyConfig",
     "django_extensions",
     "social_django",
+    "crispy_forms", # pip install django-crispy-forms
 
     "mainapp",
     "authapp",
@@ -169,3 +170,5 @@ SOCIAL_AUTH_GITHUB_SECRET = "cae481533ab73098c4bb11fbe73a46c847dfaa32"
 SOCIAL_AUTH_VK_OAUTH2_KEY = '8112501'# ID приложения
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'qNOrYzVRAoxq0uKqrd1r' # Защищённый ключ
 SOCIAL_AUTH_VK_OAUTH2_API_VERSION = '5.131'
+
+CRISPY_TEMPLATE_PACK = "bootstrap4" # https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
