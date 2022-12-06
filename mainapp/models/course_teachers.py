@@ -1,6 +1,7 @@
 __all__ = ['CourseTeachers']
 
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class CourseTeachers(models.Model):
@@ -18,3 +19,7 @@ class CourseTeachers(models.Model):
     def delete(self, *args):
         self.deleted = True
         self.save()
+
+    class Meta: # https://django.fun/ru/docs/django/4.1/ref/models/options/ смотри подробнее
+        verbose_name = _("Teacher")
+        verbose_name_plural = _("Teachers")
