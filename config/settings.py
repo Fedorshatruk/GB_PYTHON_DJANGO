@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "social_django",
     "crispy_forms", # pip install django-crispy-forms
     "debug_toolbar", # pip install django-debug-toolbar pip install django-redis sudo apt install redis-server
+    'django_celery_beat',
 
     "mainapp",
     "authapp",
@@ -217,3 +218,11 @@ CACHES = {
         },
     }
 }
+
+
+
+CELERY_BROKER_URL = "redis://localhost:6379" # pip install "celery[redis]"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = "var/email-messages/"
