@@ -29,9 +29,11 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = ['*']
+if DEBUG:
+    INTERNAL_IPS = [
+        "127.0.0.1",
+    ]
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "social_django",
     "crispy_forms", # pip install django-crispy-forms
+    "debug_toolbar", # pip install django-debug-toolbar pip install django-redis sudo apt install redis-server
 
     "mainapp",
     "authapp",
@@ -60,6 +63,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+if DEBUG:
+    MIDDLEWARE.append(
+        "debug_toolbar.middleware.DebugToolbarMiddleware"
+    )
 
 ROOT_URLCONF = "config.urls"
 
@@ -199,4 +206,14 @@ LOGGING = {  # https://docs.python.org/3/library/logging.html#logrecord-attribut
             "handlers": ["file"],
         },
     },
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
 }
