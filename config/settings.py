@@ -54,7 +54,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -116,13 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = "authapp.CustomUser"
 AUTHENTICATION_BACKENDS = (
     "social_core.backends.github.GithubOAuth2",
-    'social_core.backends.vk.VKOAuth2',
     "django.contrib.auth.backends.ModelBackend",
 )
-
-SOCIAL_AUTH_VK_OAUTH2_KEY = '8112501' # ID приложения
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'qNOrYzVRAoxq0uKqrd1r' # Защищённый ключ
-SOCIAL_AUTH_VK_OAUTH2_API_VERSION = '5.131'
 
 LOGIN_REDIRECT_URL = "mainapp:main_page"
 LOGOUT_REDIRECT_URL = "mainapp:main_page"
