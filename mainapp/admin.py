@@ -38,3 +38,8 @@ class CourseTeachersAdmin(admin.ModelAdmin):
         return ", ".join((i.name for i in obj.course.all()))
 
     get_courses.short_description = _("Courses")
+
+
+@admin.register(mainapp_models.CourseFeedback)
+class CourseFeedbackAdmin(admin.ModelAdmin):
+    pass
