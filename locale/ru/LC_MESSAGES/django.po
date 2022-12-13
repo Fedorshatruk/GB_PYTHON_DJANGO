@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-13 17:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "Please, enter a valid age!"
+msgstr "Введите валидный возраст!"
+
+msgid "username"
+msgstr "username"
+
+msgid "Required. 150 characters or fewer. ASCII letters and digits only."
+msgstr "Обязательный. 150 символов или меньше. Только буквы и цифры ASCII."
+
+msgid "A user with that username already exists."
+msgstr "Пользователь с таким username уже существует."
+
+msgid "first name"
+msgstr "имя"
+
+msgid "last name"
+msgstr "фамилия"
+
+msgid "email address"
+msgstr "адрес электронной почты"
+
+msgid "A user with that email address already exists."
+msgstr "Пользователь с таким адресом электронной почты уже существует."
+
+msgid "staff status"
+msgstr "статус персонала"
+
+msgid "Designates whether the user can log into this admin site."
+msgstr "Определяет, может ли пользователь войти на этот сайт администратора."
+
+msgid "active"
+msgstr "активный"
+
+msgid ""
+"Designates whether this user should be treated as active.             "
+"Unselect this instead of deleting accounts."
+msgstr ""
+
+msgid "date joined"
+msgstr ""
+
+msgid "user"
+msgstr ""
+
+msgid "users"
+msgstr ""
+
+#, python-format
+msgid "Login success!<br>Hi, %(username)s"
+msgstr ""
+
+msgid "See you later!"
+msgstr ""
+
+msgid "Courses"
+msgstr "Курсы"
+
+msgid "Course"
+msgstr "Курс"
+
+#, python-format
+msgid "Delete lessons, %(count)d"
+msgstr ""
+
+msgid "Mark deleted hjgjhgjhgjhg"
+msgstr ""
+
+msgid "Enter your message"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "No feedback"
+msgstr ""
+
+msgid "Feedback"
+msgstr ""
+
+msgid "Rating"
+msgstr ""
+
+msgid "Teacher"
+msgstr ""
+
+msgid "Teachers"
+msgstr ""
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Lesson"
+msgstr ""
+
+msgid "Lessons"
+msgstr ""
+
+msgid "News"
+msgstr "Новости"
+
+msgid "Message sended"
+msgstr ""
+
+msgid "You can send only one message per 5 minutes"
+msgstr ""
+
+msgid "Django site admin"
+msgstr ""
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Enter"
+msgstr "Вход"
+
+msgid "Contacts"
+msgstr "Контакты"

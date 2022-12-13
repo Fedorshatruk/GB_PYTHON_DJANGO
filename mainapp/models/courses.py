@@ -2,15 +2,17 @@ __all__ = ['Courses']
 
 from django.db import models
 
-from mainapp.models.managers import CoursesManager
+from mainapp.models.managers import CoursesManager, AllCoursesManager
+from django.utils.translation import gettext_lazy as _
 
 
 class Courses(models.Model):
     objects = CoursesManager()
+    all = AllCoursesManager()
 
-    name = models.CharField(max_length=256, verbose_name="Name")
+    name = models.CharField(max_length=256, verbose_name=_("Name"))
     description = models.TextField(
-        verbose_name="Description", blank=True, null=True
+        verbose_name=_("Description"), blank=True, null=True
     )
     description_as_markdown = models.BooleanField(
         verbose_name="As markdown", default=False
